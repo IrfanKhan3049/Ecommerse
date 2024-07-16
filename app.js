@@ -14,6 +14,12 @@ const mongoose =require('mongoose');
 const path = require("path");
 
 
+
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:3000'
+}))
+
 app.use(cors())
 app.use(cookieParser());
 app.use(helmet())
@@ -39,8 +45,7 @@ app.get('*',function (req,res) {
 })
 
 
-//let URI="mongodb+srv://<username>:<password>@cluster0.i5nrrf0.mongodb.net/ecom?retryWrites=true&w=majority";
-//let OPTION={user:'Rup774827',pass:'Rup774827',autoIndex:true}
+
 mongoose.connect('mongodb+srv://IKE:12345@cluster0.xl37wun.mongodb.net/ecommerce').then((res) => {
   console.log("Connection Success")
 }).catch((err) => {
